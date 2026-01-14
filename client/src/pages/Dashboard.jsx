@@ -15,7 +15,7 @@ const Dashboard = () => {
         // But the browser handles sending cookies to the same domain/origin or if configured.
         // Here we are cross-origin so we need withCredentials.
 
-        const socket = io('http://localhost:5000', {
+        const socket = io(import.meta.env.VITE_API_BASE_URL, {
             withCredentials: true
         });
 
