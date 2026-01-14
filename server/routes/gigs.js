@@ -39,14 +39,16 @@ router.get('/', async (req, res) => {
         .populate('ownerId', 'name email')
         .sort({ createdAt: -1 }); // Default: Newest first
 
-    res.json(gigs);
+    res.json({ payload: gigs });
+
 });
 
 // NEW: Get logged-in user's gigs (Active & Assigned)
 router.get('/my-gigs', protect, async (req, res) => {
     const gigs = await Gig.find({ ownerId: req.user._id })
         .sort({ createdAt: -1 });
-    res.json(gigs);
+    res.json({ payload: gigs });
+
 });
 
 // NEW: Get Contact details for a hired gig
