@@ -19,7 +19,7 @@ const server = http.createServer(app);
 
 // Use a cleaner CORS setup
 const corsOptions = {
-    origin: process.env.CLIENT_URL,
+    origin: true,
     credentials: true,
 };
 
